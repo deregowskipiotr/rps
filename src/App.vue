@@ -1,4 +1,5 @@
 <script setup>
+import { resetTracking } from '@vue/reactivity';
 import { ref, computed, onMounted } from 'vue'
 
 const wins = ref(0)
@@ -69,10 +70,11 @@ const LoadGame = () => {
 }
 
 const ResetRound = () => {
+  
   choice.value = null
   computerChoice.value = null
   verdict.value = null
-}
+} 
 
 onMounted(() => {
   LoadGame()
@@ -121,7 +123,7 @@ onMounted(() => {
           {{ verdict }}
         </div>
 
-        <button @click="ResetRound" class="bg-pink-500 text-lg  py-2 px-4">Reset</button>
+        <button @click="ResetRound" class="bg-pink-500 text-lg py-2 px-4 rounded-[10px]">Reset</button>
       </div>
 
       <div class="mt-12 text-3xl mb-4">
